@@ -4,7 +4,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 RUN apk update && apk add git
 
 # Clone the GitHub repository with credentials
-RUN git clone https://Development456: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@github.com/Development456/config-files.git /config
+RUN git clone https://ineeladri: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@github.com/ineeladri/config-files.git /config
 
 # Copy the application properties and application-dev properties files to the container
 COPY src/main/resources/application.properties /app/config/
