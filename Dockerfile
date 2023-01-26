@@ -10,7 +10,7 @@ RUN git clone https://ineeladri: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@github.
 COPY src/main/resources/application.properties /app/config/
 
 # Add the application JAR
-ARG  target/configserver-0.0.1-SNAPSHOT.jar app.jar
+ARG  target/configserver-0.0.1-SNAPSHOT.jar.original app.jar
 
 EXPOSE 8888
 
