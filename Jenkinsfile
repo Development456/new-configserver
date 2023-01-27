@@ -1,4 +1,7 @@
 node {
+	tools {
+          maven 'maven-3.6.3'
+           }
       stage("Git Clone"){
 
         git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
