@@ -6,6 +6,8 @@ RUN apk update && apk add git
 # Clone the GitHub repository with credentials
 RUN git clone https://ineeladri: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@github.com/ineeladri/config-files.git /config
 
+RUN mvn clean install -DskipTests
+
 # Copy the application properties and application-dev properties files to the container
 COPY src/main/resources/application.properties /app/config/
 
