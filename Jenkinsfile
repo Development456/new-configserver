@@ -1,14 +1,14 @@
-node {
-	
+pipeline {
+	agent any
+		tools {
+			maven "MAVEN"
+               }
+	stages {
       stage("Git Clone"){
 
         git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
       }
-	stage('Build Project'){
-        def mvnHome = tool name: 'maven', type: 'maven'
-          sh "mvn clean package"
-          echo "Executed Successfully Project1"
-    }
+	
       stage("Docker build"){
         sh 'docker build -t configserver .'
         sh 'docker image ls'
@@ -33,3 +33,4 @@ node {
 	     sh 'docker run -d -p 8888:8888 --name configserver configserver:latest'
      }
     }
+}
