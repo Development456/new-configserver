@@ -5,18 +5,13 @@ maven "3.6.0" // You need to add a maven with name "3.6.0" in the Global Tools C
 }
 stages {
 stage("Build") {
-steps {
 sh "mvn -version"
 sh "mvn clean install"
 }
-}
-
-      stage("Git Clone"){
-
-        git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
+ stage("Git Clone"){
+   git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
       }
-	
-      stage("Docker build"){
+	stage("Docker build"){
         sh 'docker build -t configserver .'
         sh 'docker image ls'
       }
