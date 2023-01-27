@@ -6,7 +6,7 @@ node {
       }
 	stage('Build Project'){
         def mvnHome = tool name: 'maven', type: 'maven'
-          sh "${mvnHome}/bin/mvn package"
+          sh "mvn clean package"
           echo "Executed Successfully Project1"
     }
       stage("Docker build"){
