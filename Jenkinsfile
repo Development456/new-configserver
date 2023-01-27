@@ -4,10 +4,8 @@ node {
         git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
       }
      stage ('Build') {
-            steps {
-		    sh 'mvn clean package'
-              }
-                  }
+            sh 'mvn clean package'
+             }
       stage("Docker build"){
         sh 'docker build -t configserver .'
         sh 'docker image ls'
