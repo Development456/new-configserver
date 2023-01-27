@@ -1,14 +1,14 @@
 node {
-	tools {
-          maven 'maven-3.6.3'
-           }
+	
       stage("Git Clone"){
 
         git branch: 'main', url: 'https://github.com/ineeladri/new-configserver.git'
       }
-     stage ('Build') {
-            sh 'mvn clean package'
-             }
+	stage('Build Project'){
+        def mvnHome = tool name: 'maven', type: 'maven'
+          sh "${mvnHome}/bin/mvn package"
+          echo "Executed Successfully Project1"
+    }
       stage("Docker build"){
         sh 'docker build -t configserver .'
         sh 'docker image ls'
